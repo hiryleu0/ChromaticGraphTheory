@@ -2,12 +2,11 @@ using ChromaticGraphTheory.Algorithms.Algorithms;
 using ChromaticGraphTheory.Algorithms.Graphs;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using QuikGraph;
 
 namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
 {
     [TestClass]
-    public class MaxIndependentOrientedColoringTests
+    public class GreedyOrientedColoringTests
     {
         [TestMethod]
         public void FullGraphTest()
@@ -15,7 +14,7 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
             int size = 20;
             var graph = GraphFactory.GetFullGraph(size);
             
-            var algorithm = new MaxIndependentOrientedColoring(graph);
+            var algorithm = new GreedyOrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max().Should().Be(size);
@@ -27,7 +26,7 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
             int size = 21;
             var graph = GraphFactory.GetCycle(size);
 
-            var algorithm = new MaxIndependentOrientedColoring(graph);
+            var algorithm = new GreedyOrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max().Should().Be(3);
@@ -39,7 +38,7 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
             int size = 20;
             var graph = GraphFactory.GetCycle(size);
 
-            var algorithm = new MaxIndependentOrientedColoring(graph);
+            var algorithm = new GreedyOrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max().Should().Be(5);
@@ -51,7 +50,7 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
             int size = 22;
             var graph = GraphFactory.GetCycle(size);
 
-            var algorithm = new MaxIndependentOrientedColoring(graph);
+            var algorithm = new GreedyOrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max().Should().Be(4);
@@ -63,7 +62,7 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
             int size = 20;
             var graph = GraphFactory.GetStarGraph(size);
 
-            var algorithm = new MaxIndependentOrientedColoring(graph);
+            var algorithm = new GreedyOrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max().Should().Be(2);
@@ -74,7 +73,7 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
         {
             var graph = GraphReader.GetFromFile("../../../Examples/TextGraph1.txt");
 
-            var algorithm = new MaxIndependentOrientedColoring(graph);
+            var algorithm = new GreedyOrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max().Should().Be(3);
@@ -85,42 +84,10 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
         {
             var graph = GraphReader.GetFromFile("../../../Examples/TextGraph2.txt");
 
-            var algorithm = new MaxIndependentOrientedColoring(graph);
+            var algorithm = new GreedyOrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max().Should().Be(5);
-        }
-
-        [TestMethod]
-        public void SpecificGraph1()
-        {
-            var graph = new BidirectionalGraph<int, IEdge<int>>();
-            graph.AddVerticesAndEdgeRange(new IEdge<int>[]
-            {
-                new Edge<int>(0, 1),
-                new Edge<int>(2, 3),
-            });
-
-            var algorithm = new MaxIndependentOrientedColoring(graph);
-
-            var coloring = algorithm.Execute();
-            coloring.Max().Should().Be(2);
-        }
-
-        [TestMethod]
-        public void SpecificGraph2()
-        {
-            var graph = new BidirectionalGraph<int, IEdge<int>>();
-            graph.AddVerticesAndEdgeRange(new IEdge<int>[]
-            {
-                new Edge<int>(0, 1),
-                new Edge<int>(3, 2),
-            });
-
-            var algorithm = new MaxIndependentOrientedColoring(graph);
-
-            var coloring = algorithm.Execute();
-            coloring.Max().Should().Be(2);
         }
     }
 }

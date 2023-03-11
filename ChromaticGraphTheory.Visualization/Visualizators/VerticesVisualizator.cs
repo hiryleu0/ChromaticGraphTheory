@@ -1,9 +1,4 @@
-﻿using ChromaticGraphTheory.Visualization.DOT;
-using QuikGraph;
-using QuikGraph.Graphviz;
-using static System.Net.Mime.MediaTypeNames;
-using System.IO;
-using ImageMagick;
+﻿using QuikGraph;
 
 namespace ChromaticGraphTheory.Visualization.Visualizators
 {

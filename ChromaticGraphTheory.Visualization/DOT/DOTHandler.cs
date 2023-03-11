@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ChromaticGraphTheory.Visualization.DOT
+﻿namespace ChromaticGraphTheory.Visualization.DOT
 {
     public static class DOTHandler
     {

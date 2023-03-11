@@ -1,7 +1,7 @@
 ﻿using ChromaticGraphTheory.Visualization.DOT;
 using ImageMagick;
-using QuikGraph.Graphviz;
 using QuikGraph;
+using QuikGraph.Graphviz;
 using QuikGraph.Graphviz.Dot;
 
 namespace ChromaticGraphTheory.Visualization.Visualizators
