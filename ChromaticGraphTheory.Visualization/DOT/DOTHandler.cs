@@ -8,14 +8,18 @@ namespace ChromaticGraphTheory.Visualization.DOT
 {
     public static class DOTHandler
     {
-        public static void ConvertDotToSvg(string dotFile, string svgFile)
+        public static void ConvertDotToSvg(string dotFile)
         {
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = $"/C dot {dotFile} -Tsvg -o {svgFile}";
-            process.StartInfo = startInfo;
+            System.Diagnostics.ProcessStartInfo startInfo = new()
+            {
+                WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
+                FileName = "cmd.exe",
+                Arguments = $"/C dot {dotFile} -Tsvg -o {dotFile}.svg"
+            };
+            System.Diagnostics.Process process = new()
+            {
+                StartInfo = startInfo
+            };
             process.Start();
             process.WaitForExit();
         }
