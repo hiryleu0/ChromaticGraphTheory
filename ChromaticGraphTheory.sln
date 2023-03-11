@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChromaticGraphTheory.Algorithms", "ChromaticGraphTheory.Algorithms\ChromaticGraphTheory.Algorithms.csproj", "{247E343B-6EFF-4D68-A1DE-4DB3EC260D7C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChromaticGraphTheory.Algorithms.Test", "ChromaticGraphTheory.Algorithms.Test\ChromaticGraphTheory.Algorithms.Test.csproj", "{BBDDC0E0-7F56-4227-867F-D5CB5BD8FEB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaticGraphTheory.Visualization", "ChromaticGraphTheory.Visualization\ChromaticGraphTheory.Visualization.csproj", "{4600A226-6C55-4014-BBC9-C37C42F86A40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaticGraphTheory.Application", "ChromaticGraphTheory.Application\ChromaticGraphTheory.Application.csproj", "{F154A848-EB29-43C1-BCCF-EE35C5C384FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{247E343B-6EFF-4D68-A1DE-4DB3EC260D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{247E343B-6EFF-4D68-A1DE-4DB3EC260D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{247E343B-6EFF-4D68-A1DE-4DB3EC260D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{247E343B-6EFF-4D68-A1DE-4DB3EC260D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBDDC0E0-7F56-4227-867F-D5CB5BD8FEB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBDDC0E0-7F56-4227-867F-D5CB5BD8FEB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBDDC0E0-7F56-4227-867F-D5CB5BD8FEB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBDDC0E0-7F56-4227-867F-D5CB5BD8FEB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4600A226-6C55-4014-BBC9-C37C42F86A40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4600A226-6C55-4014-BBC9-C37C42F86A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4600A226-6C55-4014-BBC9-C37C42F86A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4600A226-6C55-4014-BBC9-C37C42F86A40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F154A848-EB29-43C1-BCCF-EE35C5C384FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F154A848-EB29-43C1-BCCF-EE35C5C384FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F154A848-EB29-43C1-BCCF-EE35C5C384FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F154A848-EB29-43C1-BCCF-EE35C5C384FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95AA0D45-0B54-4103-B835-5392FF5D6C07}
+	EndGlobalSection
+EndGlobal

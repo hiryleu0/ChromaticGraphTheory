@@ -1,0 +1,93 @@
+using ChromaticGraphTheory.Algorithms.Algorithms;
+using ChromaticGraphTheory.Algorithms.Graphs;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
+{
+    [TestClass]
+    public class MaxIndependentOrientedColoringTests
+    {
+        [TestMethod]
+        public void FullGraphTest()
+        {
+            int size = 20;
+            var graph = GraphFactory.GetFullGraph(size);
+            
+            var algorithm = new MaxIndependentOrientedColoring(graph);
+
+            var coloring = algorithm.Execute();
+            coloring.Max().Should().Be(size);
+        }
+
+        [TestMethod]
+        public void CycleOfLengthDevidedBy3Test()
+        {
+            int size = 21;
+            var graph = GraphFactory.GetCycle(size);
+
+            var algorithm = new MaxIndependentOrientedColoring(graph);
+
+            var coloring = algorithm.Execute();
+            coloring.Max().Should().Be(3);
+        }
+
+        [TestMethod]
+        public void CycleOfLength2Mod3Test()
+        {
+            int size = 20;
+            var graph = GraphFactory.GetCycle(size);
+
+            var algorithm = new MaxIndependentOrientedColoring(graph);
+
+            var coloring = algorithm.Execute();
+            coloring.Max().Should().Be(5);
+        }
+
+        [TestMethod]
+        public void CycleOfLength1Mod3Test()
+        {
+            int size = 22;
+            var graph = GraphFactory.GetCycle(size);
+
+            var algorithm = new MaxIndependentOrientedColoring(graph);
+
+            var coloring = algorithm.Execute();
+            coloring.Max().Should().Be(4);
+        }
+
+        [TestMethod]
+        public void StarGraphTest()
+        {
+            int size = 20;
+            var graph = GraphFactory.GetStarGraph(size);
+
+            var algorithm = new MaxIndependentOrientedColoring(graph);
+
+            var coloring = algorithm.Execute();
+            coloring.Max().Should().Be(2);
+        }
+
+        [TestMethod]
+        public void GraphFromTextfile1Test()
+        {
+            var graph = GraphReader.GetFromFile("../../../Examples/TextGraph1.txt");
+
+            var algorithm = new MaxIndependentOrientedColoring(graph);
+
+            var coloring = algorithm.Execute();
+            coloring.Max().Should().Be(3);
+        }
+
+        [TestMethod]
+        public void GraphFromTextfile2Test()
+        {
+            var graph = GraphReader.GetFromFile("../../../Examples/TextGraph2.txt");
+
+            var algorithm = new MaxIndependentOrientedColoring(graph);
+
+            var coloring = algorithm.Execute();
+            coloring.Max().Should().Be(5);
+        }
+    }
+}
