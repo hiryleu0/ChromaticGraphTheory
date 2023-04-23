@@ -1,0 +1,52 @@
+﻿Instrukcja
+
+Wstęp
+
+	Aplikacja prezentująca działanie wybranych algorytmów przybliżonych do kolorowania grafów zorientowanych.
+	Kod napisany został w języku C# (.NET 6/.NET Framework 4.8). Dodatkowo do uruchomienia modułów innych niż GUI wymagane jest
+	zainstalowanie oprogramowania Graphviz (https://graphviz.org/) oraz dodanie plików wykonywalnych do zmiennej środowiskowej PATH.
+
+1. ChromaticGraphTheory.GUI
+
+	Główna aplikacja, w której można stworzyć graf oraz pokolorować go wybranym algorytmem (narazie dostępny tylko GREEDY).
+	Obsługa:
+
+	- lewym przyciskiem myszy można tworzyć wierzchołki grafu (wierzchołki muszą być w odpowiedniej odległości od siebie, niedozwolone
+	jest nachodzenie na sibeie wierzchołków)
+	- prawym przyciskiem myszy można wierzchołki usuwać
+	- lewym przyciskiem myszy można również wybrać wierzchołek (staje się on wtedy szary) i potem wybrać inny wierzchołek, wted powstanie
+	krawędź; można również po wybraniu wierzchołka kliknąć w puste miejsce, wówczas utworzy się nowy wierzchołek połączony krawędzią
+	z zaznaczonym
+	- przycisk NEW resetuje obszar do tworzenia grafu
+	- przycisk GREEDY itwiera okno dialogowe, gdzie można wybrać lokalizację oraz nazwę pliku; nazwa pliku powinna być w formacie
+	<dowolna_nazwa>.gif
+	- we wskazanej lokalizacji utworzy się wizualizacja kolorowania utworzonego grafu
+
+2. ChromaticGraphTheory.Algorithms
+
+	Biblioteka zawierająca algorytmy do kolorowania
+
+3. ChromaticGraphTheory.Algorithms.Test
+
+	Testy jednostkowe algorytmów do kolorowania
+
+4. ChromaticGraphTheory.Visualization
+
+	Biblioteka zawierająca metody wizualizacji kolorowania
+
+5. ChromaticGraphTheory.Application
+
+	Aplikacja służąca do generowania wizualizacji kolorowań
+
+
+Uruchomienie:
+
+	1. Najprostszą opcją uruchomienia aplikacji jest instalacja Visual Studio.
+	2. Podczas instalacji należy zadbać, aby zainstalował się .NET Framework 4.8
+	3. Następnie należy otworzyć solucję w Visual Studio
+	4. Następnie w eksplorerze rozwiązania kliknąć prawym przyciskiem myszy na projekt ChromaticGraphTheory.GUI
+	   i wybrać opcję USTAW JAKO PROJEKT STARTOWY.
+	5. Następnie uruchomić projekt.
+	
+	6*. Pozostałe projekty służą głównie do generowania wizualizacji i wyników, ich uruchomienie nie jest konieczne.
+		Zostały przygotowane przykładowe wyniki ich działania w katalogu ChromaticGraphTheory/results.
