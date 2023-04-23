@@ -73,6 +73,7 @@ namespace ChromaticGraphTheory.Visualization.Visualizators
                     args.VertexFormat.FillColor = ColorsPalette[Coloring[args.Vertex]];
                 }
                 args.VertexFormat.Shape = GraphvizVertexShape.Circle;
+                args.VertexFormat.Label = args.Vertex.ToString();
             };
         }
         private List<string> GenerateDotFiles()

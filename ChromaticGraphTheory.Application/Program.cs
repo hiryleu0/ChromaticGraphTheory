@@ -4,12 +4,12 @@ using ChromaticGraphTheory.Visualization.Visualizators;
 using QuikGraph;
 
 var graph = new BidirectionalGraph<int, IEdge<int>>();
-graph.AddVerticesAndEdgeRange(new IEdge<int>[]
+graph.AddVerticesAndEdgeRange(new List<Edge<int>>
 {
-    new Edge<int>(0, 1),
-    new Edge<int>(3, 2),
+    new Edge<int>(0,1),
+    new Edge<int>(3,2),
 });
-var coloring = new MaxIndependentOrientedColoring(graph).Execute();
+var coloring = new GreedyOrientedColoring(graph).Execute();
 
-new ColorsVisualizator(graph, coloring, "../../../results/graph22.colors.gif").VisualizeColoring();
-new VerticesVisualizator(graph, coloring, "../../../results/graph22.vertices.gif").VisualizeColoring();
+new ColorsVisualizator(graph, coloring, "../../../results/graph27.colors.gif").VisualizeColoring();
+new VerticesVisualizator(graph, coloring, "../../../results/graph27.vertices.gif").VisualizeColoring();

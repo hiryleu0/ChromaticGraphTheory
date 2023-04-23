@@ -1,6 +1,6 @@
-﻿using QuikGraph;
+﻿using QuickGraph;
 
-namespace ChromaticGraphTheory.Algorithms.Algorithms
+namespace ChromaticGraphTheory.GUI
 {
     public class GreedyOrientedColoring
     {

@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChromaticGraphTheory.Algori
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChromaticGraphTheory.Algorithms.Test", "ChromaticGraphTheory.Algorithms.Test\ChromaticGraphTheory.Algorithms.Test.csproj", "{BBDDC0E0-7F56-4227-867F-D5CB5BD8FEB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaticGraphTheory.Visualization", "ChromaticGraphTheory.Visualization\ChromaticGraphTheory.Visualization.csproj", "{4600A226-6C55-4014-BBC9-C37C42F86A40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChromaticGraphTheory.Visualization", "ChromaticGraphTheory.Visualization\ChromaticGraphTheory.Visualization.csproj", "{4600A226-6C55-4014-BBC9-C37C42F86A40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaticGraphTheory.Application", "ChromaticGraphTheory.Application\ChromaticGraphTheory.Application.csproj", "{F154A848-EB29-43C1-BCCF-EE35C5C384FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChromaticGraphTheory.Application", "ChromaticGraphTheory.Application\ChromaticGraphTheory.Application.csproj", "{F154A848-EB29-43C1-BCCF-EE35C5C384FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaticGraphTheory.GUI", "ChromaticGraphTheory.GUI\ChromaticGraphTheory.GUI.csproj", "{2B876031-3323-427E-99AC-9EB12C1674C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F154A848-EB29-43C1-BCCF-EE35C5C384FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F154A848-EB29-43C1-BCCF-EE35C5C384FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F154A848-EB29-43C1-BCCF-EE35C5C384FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B876031-3323-427E-99AC-9EB12C1674C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B876031-3323-427E-99AC-9EB12C1674C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B876031-3323-427E-99AC-9EB12C1674C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B876031-3323-427E-99AC-9EB12C1674C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
