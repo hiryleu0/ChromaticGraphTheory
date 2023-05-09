@@ -42,8 +42,8 @@ Wstęp
 Uruchomienie:
 
 	1. Najprostszą opcją uruchomienia aplikacji jest instalacja Visual Studio.
-	2. Podczas instalacji należy zadbać, aby zainstalował się .NET Framework 4.8
-	3. Następnie należy otworzyć solucję w Visual Studio
+	2. Podczas instalacji należy zadbać, aby zainstalował się .NET Framework 4.8.
+	3. Następnie należy otworzyć solucję w Visual Studio.
 	4. Następnie w eksplorerze rozwiązania kliknąć prawym przyciskiem myszy na projekt ChromaticGraphTheory.GUI
 	   i wybrać opcję USTAW JAKO PROJEKT STARTOWY.
 	5. Następnie uruchomić projekt.

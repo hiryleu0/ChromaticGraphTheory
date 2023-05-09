@@ -1,12 +1,14 @@
 ﻿using QuickGraph;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ChromaticGraphTheory.GUI
 {
-    public class GreedyOrientedColoring
+    public class LargestFirstV2OrientedColoring
     {
         public IBidirectionalGraph<int, IEdge<int>> Graph { get; private set; }
 
-        public GreedyOrientedColoring(IBidirectionalGraph<int, IEdge<int>> graph)
+        public LargestFirstV2OrientedColoring(IBidirectionalGraph<int, IEdge<int>> graph)
         {
             Graph = graph;
         }
@@ -14,29 +16,37 @@ namespace ChromaticGraphTheory.GUI
         public (int, int, int)[] Execute()
         {
             (int color, int order, int)[] coloring = new (int, int, int)[Graph.VertexCount];
-            bool[,] usedColors = new bool[Graph.VertexCount+1, Graph.VertexCount+1];
+            bool[,] usedColors = new bool[Graph.VertexCount + 1, Graph.VertexCount + 1];
 
-            for(int i=0; i<Graph.VertexCount; i++)
+            var orderedVertices = Graph.Vertices.ToList();
+            orderedVertices.Sort((v1, v2) => Graph.OutDegree(v2) - Graph.OutDegree(v1));
+            var coloredVertices = new List<int>();
+
+            var order = 0;
+            foreach(var v in orderedVertices)
             {
+                order++;
                 var color = 1;
-                while (!IsColorAvailable(i, color, coloring, usedColors)) color++;
-                coloring[i] = (color, i+1, i);
+                while (!IsColorAvailable(v, color, coloring, usedColors, coloredVertices)) color++;
+                coloring[v] = (color, order, v);
                 
-                for(int j=0; j<i; j++)
+                foreach(var w in coloredVertices)
                 {
-                    if (Graph.ContainsEdge(i, j))
-                        usedColors[coloring[i].color, coloring[j].color] = true;
-                    else if (Graph.ContainsEdge(j, i))
-                        usedColors[coloring[j].color, coloring[i].color] = true;
+                    if (Graph.ContainsEdge(v, w))
+                        usedColors[coloring[v].color, coloring[w].color] = true;
+                    else if (Graph.ContainsEdge(w, v))
+                        usedColors[coloring[w].color, coloring[v].color] = true;
                 }
+
+                coloredVertices.Add(v);
             }
 
             return coloring;
         }
 
-        private bool IsColorAvailable(int vertex, int color, (int color, int, int)[] coloring, bool[,] usedColor)
+        private bool IsColorAvailable(int vertex, int color, (int color, int, int)[] coloring, bool[,] usedColor, List<int> usedVertices)
         {
-            for(int i=0; i<vertex; i++)
+            foreach(var i in usedVertices)
             {
                 if (Graph.ContainsEdge(i, vertex) && (coloring[i].color == color || usedColor[color, coloring[i].color]))
                 {

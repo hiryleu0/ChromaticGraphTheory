@@ -15,7 +15,7 @@ namespace ChromaticGraphTheory.Algorithms.Algorithms
         public int[] Execute()
         {
             int[] coloring = new int[Graph.VertexCount];
-            bool[,] usedColors = new bool[Graph.VertexCount, Graph.VertexCount]; ;
+            bool[,] usedColors = new bool[Graph.VertexCount + 1, Graph.VertexCount + 1];
 
             for(int i=0; i<Graph.VertexCount; i++)
             {

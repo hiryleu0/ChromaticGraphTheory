@@ -72,6 +72,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="DSaturOrientedColoring.cs" />
+    <Compile Include="LargestFirstV2OrientedColoring.cs" />
+    <Compile Include="LargestFirstV1OrientedColoring.cs" />
     <Compile Include="GreedyOrientedColoring.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -40,12 +41,16 @@ namespace ChromaticGraphTheory.GUI
             using(Pen p = new Pen(Color.Black))
             {
                 e.Graphics.FillRectangle(Brushes.White, 0, 0, this.Width - 200, this.Height);
-                p.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
+                p.CustomEndCap = new AdjustableArrowCap(10, 10);
                 
-
                 foreach (var (e1, e2) in edges)
                 {
-                    e.Graphics.DrawLine(p, e1.x, e1.y, e2.x, e2.y);
+                    int x1 = e1.x, x2 = e2.x, y1 = e1.y, y2 = e2.y;
+
+                    double sqrt = Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+                    int x3 = (int)(x2 - (x2 - x1) * radius / sqrt);
+                    int y3 = (int)(y2 - (y2 - y1) * radius / sqrt);
+                    e.Graphics.DrawLine(p, e1.x, e1.y, x3, y3);
                 }
 
                 foreach (var (x, y) in vertices)
@@ -147,7 +152,7 @@ namespace ChromaticGraphTheory.GUI
                         ));
                 }
 
-                var coloring = new GreedyOrientedColoring(graph).Execute();
+                var coloring = new LargestFirstV1OrientedColoring(graph).Execute();
 
                 new Visualizator(vertices, edges, coloring, dialog.FileName).VisualizeColoring();
             }
@@ -157,6 +162,81 @@ namespace ChromaticGraphTheory.GUI
         {
             edges.Clear();
             vertices.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                BidirectionalGraph<int, IEdge<int>> graph = new BidirectionalGraph<int, IEdge<int>>();
+                for (int i = 0; i < vertices.Count; i++)
+                {
+                    graph.AddVertex(i);
+                }
+
+                foreach (var edge in edges)
+                {
+                    graph.AddEdge(new Edge<int>(
+                        vertices.IndexOf(edge.p1),
+                        vertices.IndexOf(edge.p2)
+                        ));
+                }
+
+                var coloring = new GreedyOrientedColoring(graph).Execute();
+
+                new Visualizator(vertices, edges, coloring, dialog.FileName).VisualizeColoring();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                BidirectionalGraph<int, IEdge<int>> graph = new BidirectionalGraph<int, IEdge<int>>();
+                for (int i = 0; i < vertices.Count; i++)
+                {
+                    graph.AddVertex(i);
+                }
+
+                foreach (var edge in edges)
+                {
+                    graph.AddEdge(new Edge<int>(
+                        vertices.IndexOf(edge.p1),
+                        vertices.IndexOf(edge.p2)
+                        ));
+                }
+
+                var coloring = new LargestFirstV2OrientedColoring(graph).Execute();
+
+                new Visualizator(vertices, edges, coloring, dialog.FileName).VisualizeColoring();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                BidirectionalGraph<int, IEdge<int>> graph = new BidirectionalGraph<int, IEdge<int>>();
+                for (int i = 0; i < vertices.Count; i++)
+                {
+                    graph.AddVertex(i);
+                }
+
+                foreach (var edge in edges)
+                {
+                    graph.AddEdge(new Edge<int>(
+                        vertices.IndexOf(edge.p1),
+                        vertices.IndexOf(edge.p2)
+                        ));
+                }
+
+                var coloring = new DSaturOrientedColoring(graph).Execute();
+
+                new Visualizator(vertices, edges, coloring, dialog.FileName).VisualizeColoring();
+            }
         }
     }
 }
