@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
 {
     [TestClass]
-    public class GreedyOrientedColoringTests
+    public class LargestFirstV1OrientedColoringTests
     {
         [TestMethod]
         public void FullGraphTest()
@@ -13,7 +13,7 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
             int size = 20;
             var graph = GraphFactory.GetFullGraph(size);
             
-            var algorithm = new GreedyOrientedColoring(graph);
+            var algorithm = new LargestFirstV1OrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max(((int x, int, int) _) => _.x).Should().Be(size);
@@ -25,10 +25,10 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
             int size = 21;
             var graph = GraphFactory.GetCycle(size);
 
-            var algorithm = new GreedyOrientedColoring(graph);
+            var algorithm = new LargestFirstV1OrientedColoring(graph);
 
             var coloring = algorithm.Execute();
-            coloring.Max(((int x, int, int) _) => _.x).Should().Be(3);
+            coloring.Max(((int x, int, int) _) => _.x).Should().Be(5);
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
             int size = 20;
             var graph = GraphFactory.GetCycle(size);
 
-            var algorithm = new GreedyOrientedColoring(graph);
+            var algorithm = new LargestFirstV1OrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max(((int x, int, int) _) => _.x).Should().Be(5);
@@ -49,7 +49,7 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
             int size = 22;
             var graph = GraphFactory.GetCycle(size);
 
-            var algorithm = new GreedyOrientedColoring(graph);
+            var algorithm = new LargestFirstV1OrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max(((int x, int, int) _) => _.x).Should().Be(4);
@@ -61,7 +61,7 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
             int size = 20;
             var graph = GraphFactory.GetStarGraph(size);
 
-            var algorithm = new GreedyOrientedColoring(graph);
+            var algorithm = new LargestFirstV1OrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max(((int x, int, int) _) => _.x).Should().Be(2);
@@ -72,7 +72,7 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
         {
             var graph = GraphReader.GetFromFile("../../../Examples/TextGraph1.txt");
 
-            var algorithm = new GreedyOrientedColoring(graph);
+            var algorithm = new LargestFirstV1OrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max(((int x, int, int) _) => _.x).Should().Be(3);
@@ -83,7 +83,7 @@ namespace ChromaticGraphTheory.Algorithms.Test.Algorithms
         {
             var graph = GraphReader.GetFromFile("../../../Examples/TextGraph2.txt");
 
-            var algorithm = new GreedyOrientedColoring(graph);
+            var algorithm = new LargestFirstV1OrientedColoring(graph);
 
             var coloring = algorithm.Execute();
             coloring.Max(((int x, int, int) _) => _.x).Should().Be(5);

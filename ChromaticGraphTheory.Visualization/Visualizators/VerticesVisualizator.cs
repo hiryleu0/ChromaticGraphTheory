@@ -4,7 +4,7 @@ namespace ChromaticGraphTheory.Visualization.Visualizators
 {
     public class VerticesVisualizator : Visualizator
     {
-        public VerticesVisualizator(BidirectionalGraph<int, IEdge<int>> graph, int[] coloring, string filePath) : base(graph, coloring, filePath)
+        public VerticesVisualizator(BidirectionalGraph<int, IEdge<int>> graph, (int, int, int)[] coloring, string filePath) : base(graph, coloring, filePath)
         {
         }
 

@@ -1,15 +1,28 @@
-﻿using ChromaticGraphTheory.Algorithms.Algorithms;
+﻿using ChromaticGraphTheory.Algorithms;
 using ChromaticGraphTheory.Algorithms.Graphs;
-using ChromaticGraphTheory.Visualization.Visualizators;
-using QuikGraph;
+using System.Text;
 
-var graph = new BidirectionalGraph<int, IEdge<int>>();
-graph.AddVerticesAndEdgeRange(new List<Edge<int>>
+List<(int, int, int, int, int)> data = new();
+
+for(int i = 20; i<= 135; i++)
 {
-    new Edge<int>(0,1),
-    new Edge<int>(3,2),
-});
-var coloring = new GreedyOrientedColoring(graph).Execute();
+    var graph = GraphFactory.GetRandomGraph(i, (int)(2 * i * Math.Log(i)));    
 
-new ColorsVisualizator(graph, coloring, "../../../results/graph27.colors.gif").VisualizeColoring();
-new VerticesVisualizator(graph, coloring, "../../../results/graph27.vertices.gif").VisualizeColoring();
+    int dsatur = new DSaturOrientedColoring(graph).Execute().Max(((int color, int, int) _) => _.color);
+    int greedy = new GreedyOrientedColoring(graph).Execute().Max(((int color, int, int) _) => _.color);
+    int lfirs1 = new LargestFirstV1OrientedColoring(graph).Execute().Max(((int color, int, int) _) => _.color);
+    int lfirs2 = new LargestFirstV2OrientedColoring(graph).Execute().Max(((int color, int, int) _) => _.color);
+
+    data.Add((i, dsatur, greedy, lfirs1, lfirs2));
+}
+
+
+var csv = new StringBuilder();
+csv.AppendLine("Size;DSatur;Greedy;LargestFirst V1;LargestFirst V2");
+
+foreach(var (a, b, c, d, e) in data)
+{
+    csv.AppendLine($"{a};{b};{c};{d};{e}");
+}
+
+File.WriteAllText("../../../data/medium_size_medium_density.csv", csv.ToString());

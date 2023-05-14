@@ -25,10 +25,10 @@ namespace ChromaticGraphTheory.Visualization.Visualizators
         };
 
         public BidirectionalGraph<int, IEdge<int>> Graph { get; }
-        public int[] Coloring { get; }
+        public (int, int, int)[] Coloring { get; }
         public string FilePath { get; }
 
-        public Visualizator(BidirectionalGraph<int, IEdge<int>> graph, int[] coloring, string filePath)
+        public Visualizator(BidirectionalGraph<int, IEdge<int>> graph, (int, int, int)[] coloring, string filePath)
         {
             Graph = graph;
             Coloring = coloring;
@@ -70,7 +70,7 @@ namespace ChromaticGraphTheory.Visualization.Visualizators
                 if (ShouldBeColored(args.Vertex, i))
                 {
                     args.VertexFormat.Style = GraphvizVertexStyle.Filled;
-                    args.VertexFormat.FillColor = ColorsPalette[Coloring[args.Vertex]];
+                    args.VertexFormat.FillColor = ColorsPalette[Coloring[args.Vertex].Item1];
                 }
                 args.VertexFormat.Shape = GraphvizVertexShape.Circle;
                 args.VertexFormat.Label = args.Vertex.ToString();

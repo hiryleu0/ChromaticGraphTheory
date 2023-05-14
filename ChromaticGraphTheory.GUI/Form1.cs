@@ -1,4 +1,5 @@
-﻿using QuickGraph;
+﻿using ChromaticGraphTheory.Algorithms.Graphs;
+using QuickGraph;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -236,6 +237,24 @@ namespace ChromaticGraphTheory.GUI
                 var coloring = new DSaturOrientedColoring(graph).Execute();
 
                 new Visualizator(vertices, edges, coloring, dialog.FileName).VisualizeColoring();
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                GraphReader.SaveToFile(vertices, edges, dialog.FileName);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                (vertices, edges) = GraphReader.GetFromFile(path: dialog.FileName);
             }
         }
     }
